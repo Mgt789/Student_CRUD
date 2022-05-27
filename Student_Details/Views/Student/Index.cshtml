@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Student List</h2>
+        </div>
+
+        <div class="col-6 text-end">
+            <a asp-controller="Student" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; New Student
+            </a>
+        </div>
+
+    </div>
+    <br /><br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>Department</th>
+                <th>Modification</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Stud_Id
+                    </td>
+
+                    <td>
+                        @obj.FirstName
+                    </td>
+
+                    <td>
+                        @obj.LastName
+                    </td>
+
+                    <td>
+                        @obj.Age
+                    </td>
+
+                    <td>
+                        @obj.Course
+                    </td>
+
+                    <td>
+                        @obj.Department
+                    </td>
+
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            @*Edit Button*@
+                            <a asp-controller="Student" asp-action="Edit" asp-route-id="@obj.Stud_Id"
+                               class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
+                            </a>
+
+                            @*Delete Button*@
+                            <a asp-controller="Student" asp-action="Delete" asp-route-id="@obj.Stud_Id"
+                               class="btn btn-primary mx-2">
+                                <i class="bi bi-trash-fill"></i>
+                                Delete
+                            </a>
+
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

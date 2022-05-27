@@ -1,0 +1,65 @@
+﻿@model Student
+
+<form method="post" asp-action="Delete">
+    <input asp-for="Stud_Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-3 mt-4">
+            <div class="row pb-2">
+            <h2 class="text-primary">Delete Student</h2>
+            <hr />
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Stud_Id"></label>
+            <input asp-for="Stud_Id" disabled class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" disabled class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" disabled class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Age"></label>
+            <input asp-for="Age" disabled class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Course"></label>
+            <input asp-for="Course" disabled class="form-control" />
+            <span asp-validation-for="Course" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Department"></label>
+            <input asp-for="Department" disabled class="form-control" />
+            <span asp-validation-for="Department" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+        <a asp-controller="Student" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to List
+        </a>
+
+    </div>
+
+</form>
+
+@*Client side Validation *@
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+}
